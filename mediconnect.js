@@ -1,4 +1,5 @@
 Users = new Mongo.Collection("users");
+//Studies = new Mongo.Colelction("studies");
 
 if (Meteor.isClient) {
 
@@ -10,16 +11,22 @@ if (Meteor.isClient) {
 
   Template.body.events({
     "submit .new-user": function (event) {
-      var text = event.target.text.value;
-
+      var first = event.target.fname.value;
+      var last = event.target.lname.value;
       Users.insert({
-        fname: text
+        fname: first,
+        lname: last,
+        createdAt: new Date() // current time
       });
 
-      event.target.text.value = "";
+      // Clear form
+      event.target.fname.value = "";
+      event.target.lname.value = "";
 
+      // Prevent default form submit
       return false;
     }
+
   });
 }
 
