@@ -1,0 +1,17 @@
+<head>
+  <title>mediconnect</title>
+</head>
+
+<body>
+  <h1>Submit Users</h1>
+
+  <form class="new-user">
+    <input type="text" name="text" placeholder="Type to add new tasks" />
+  </form>
+
+  {{> body}}
+</body>
+
+<template name="user">
+  <li>{{text}}</li>
+</template>
